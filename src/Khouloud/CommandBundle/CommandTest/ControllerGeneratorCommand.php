@@ -11,14 +11,13 @@ class ControllerGeneratorCommand extends ContainerAwareCommand
 {
    public function configure()
    {
-        parent::configure();
         $this->setName('please:e5dem')
              ->setDescription('TESTER la commande')
             ;
    }
     public function execute(InputInterface $input,OutputInterface $output)
     {
-        parent::execute($input, $output);
+        
         $output->writeln('hello');
     }
 
