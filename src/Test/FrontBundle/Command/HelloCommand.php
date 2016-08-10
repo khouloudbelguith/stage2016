@@ -203,7 +203,7 @@ class HelloCommand extends ContainerAwareCommand
         // On génère le contenu du controlleur
         $twig = $this->getContainer()->get ('templating');
 
-        $controller_code = $twig->render ('Test:FrontBundle:Resources:views:ControllerCommand:Controller.php.twig',
+        $controller_code = $twig->render('TestFrontBundle:ControllerCommand:Controller.php.twig',
             array (
                 'controller' => $controller,
                 'basecontroller' => $basecontroller,
