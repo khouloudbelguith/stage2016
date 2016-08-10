@@ -1,0 +1,3 @@
+khouloud_command_homepage:
+    path:     /
+    defaults: { _controller: KhouloudCommandBundle:Default:index }

@@ -1,0 +1,16 @@
+test_front_homepage:
+    path:     /
+    defaults: { _controller: TestFrontBundle:Default:index }
+test_front_dashboard:
+    path:     /dashboard
+    defaults: { _controller: TestFrontBundle:Dashboard:index }
+test_front_sheet_list:
+    path:     /sheet/list
+    defaults: { _controller: TestFrontBundle:Sheet:list }
+test_front_sheet_create:
+    path:     /sheet/create
+    defaults: { _controller: TestFrontBundle:Sheet:create }
+
+test_front_sheet:
+    path:     /sheet/{id}
+    defaults: { _controller: TestFrontBundle:Sheet:show}

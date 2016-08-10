@@ -1,0 +1,21 @@
+<table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Artist</td>
+        <td>Duration</td>
+        <td>Released</td>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ sheet.name }}</td>
+        <td>{{ sheet.type }}</td>
+        <td>{{ sheet.artist }}</td>
+        <td>{{ sheet.duration }}</td>
+        <td>{{ sheet.released |date('Y') }}</td>
+    </tr>
+    </tbody>
+</table>

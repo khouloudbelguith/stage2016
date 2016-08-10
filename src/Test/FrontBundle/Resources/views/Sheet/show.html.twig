@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+
+            {% block title %}Sheet List{% endblock %}
+        </title>
+        {% block pageTitle %} {{ 'Collectify Sheet '|upper }}{% endblock %}
+    </head>
+            <body>
+                {% block body %}
+                    {% include 'TestFrontBundle:Sheet:Sheets/informations.html.twig' %}
+                    <a href={{ path('test_front_sheet_list',{'id' :sheet.id}) }}>Retour</a>
+
+
+                {% endblock %}
+            </body>
+    {% block footer %}
+    {% endblock %}

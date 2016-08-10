@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>
+
+        {% block title %}Shett List {% endblock %}
+    </title>
+    {% block pageTitle %} {{ 'Collectify Sheet List'|upper }}{% endblock %}
+</head>
+<body>
+{% block body %}
+
+    {% for sheet in sheets %}
+        <br />
+        <a href={{ path('test_front_sheet_create') }}>Créer un nouveau Sheet</a> <br />
+        {{ sheet.name }} <br />
+        {{ sheet.type }} <br />
+        {{ sheet.artist }} <br />
+        {{ sheet.duration }} <br />
+        {{ sheet.released |date('Y')}} <br />
+        <a href={{ path('test_front_sheet',{'id' :sheet.id}) }}>Détails</a>
+        <br />
+        <hr />
+    {% endfor %}
+
+{% endblock %}
+</body>
+{% block footer %}
+{% endblock %}
+</html>

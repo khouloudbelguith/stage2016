@@ -1,0 +1,20 @@
+services:
+#    test_front.example:
+#        class: Test\FrontBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+      sheet_form:
+           factory_service: form.factory
+           factory_method: createNamed
+           class: Symfony\Component\Form\Form
+           arguments:
+              - sheet #nom du formulaire
+              - sheet_form  #type du formulaire
+      sheet_type:
+           class: Test\FrontBundle\Form\Type\SheetType
+           tags:
+            - {name: form.type, alias: sheet_form}
+      sheet_handler:
+           class: Test\FrontBundle\Form\Handler\SheetHandler
+           arguments: [@sheet_form,@request]
+           scope: request

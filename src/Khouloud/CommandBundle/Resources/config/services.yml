@@ -1,0 +1,4 @@
+services:
+#    khouloud_command.example:
+#        class: Khouloud\CommandBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
