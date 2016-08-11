@@ -36,10 +36,10 @@ class HelloCommand extends ContainerAwareCommand
             ->setName('demo:greet')
             ->setDescription('Greet someone')
             ->setDefinition(array(
-               /* new InputOption('table', '', InputOption::VALUE_REQUIRED, 'Le nom de la table '),
-                new InputOption('entity', '', InputOption::VALUE_REQUIRED, 'entity concerned')
-                //new InputOption('basecontroller', '', InputOption::VALUE_REQUIRED, 'S\'il faut ou non heriter du controlleur de base de Symfony2')
-          */
+                /* new InputOption('table', '', InputOption::VALUE_REQUIRED, 'Le nom de la table '),
+                 new InputOption('entity', '', InputOption::VALUE_REQUIRED, 'entity concerned')
+                 //new InputOption('basecontroller', '', InputOption::VALUE_REQUIRED, 'S\'il faut ou non heriter du controlleur de base de Symfony2')
+           */
                 new InputOption('controller', '', InputOption::VALUE_REQUIRED, 'Le nom du controller a creer'),
                 new InputOption('bundle', '', InputOption::VALUE_REQUIRED, 'Le bundle dans lequel creer le controlleur'),
                 new InputOption('basecontroller', '', InputOption::VALUE_REQUIRED, 'S\'il faut ou non heriter du controlleur de base de Symfony2')
@@ -91,7 +91,7 @@ class HelloCommand extends ContainerAwareCommand
             'Cet outil va vous permettre de insérer dans la base de donnée dynamiquement ',
             '',
         ));
-        
+
         $dialog = $this->getHelperSet()->get('dialog');
         /*$entity = $dialog->ask($output, 'What is the name of the entity?');
         $input->getOption('entity');
@@ -160,7 +160,7 @@ class HelloCommand extends ContainerAwareCommand
 
         $output->writeln($text);
         //return $output->$this->validateName('demo:greet');
-      //  $output->
+        //  $output->
 
         /*$dialog = $this->getHelperSet()->get('dialog');
         if (!$dialog->askContinuation($output,'<question>Valider la fiche ?</question>'))
@@ -169,29 +169,29 @@ class HelloCommand extends ContainerAwareCommand
         }*/
 
 
-/*
-    //public function createAction(Request $request)
-    //{
-        $form = $this->createFormBuilder(new $entity)//un passage d'identité
-            ->add('name', null, array('label' => 'Nom de l\'album '))
-            ->add('type', null, array('label' => 'Type de l\'album'))
-            ->add('artist', null, array('label' => 'Artist'))
-            ->add('duration', null, array('label' => 'Duration de l\'album'))
-            ->add('released', 'date', array('label' => 'Date de l\'album'))
-            ->add('submit', 'submit')// les add pour la personalisation
-            ->getForm();//pour récupérer le formulaire
-        //c'est la logique :il faut le déplacer
+        /*
+            //public function createAction(Request $request)
+            //{
+                $form = $this->createFormBuilder(new $entity)//un passage d'identité
+                    ->add('name', null, array('label' => 'Nom de l\'album '))
+                    ->add('type', null, array('label' => 'Type de l\'album'))
+                    ->add('artist', null, array('label' => 'Artist'))
+                    ->add('duration', null, array('label' => 'Duration de l\'album'))
+                    ->add('released', 'date', array('label' => 'Date de l\'album'))
+                    ->add('submit', 'submit')// les add pour la personalisation
+                    ->getForm();//pour récupérer le formulaire
+                //c'est la logique :il faut le déplacer
 
-        $form->handleRequest($request);
-        if ($request->isMethod('post') && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($form->getData());
-            $em->flush();
-            // $formHandler= new SheetHandler($this->createForm(new SheetType(),new Sheet()),$request);
+                $form->handleRequest($request);
+                if ($request->isMethod('post') && $form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($form->getData());
+                    $em->flush();
+                    // $formHandler= new SheetHandler($this->createForm(new SheetType(),new Sheet()),$request);
 
-            return $output->$this->render('TestFrontBundle:Sheet:create.html.twig', array('form' => $form->getForm()->createView()));
+                    return $output->$this->render('TestFrontBundle:Sheet:create.html.twig', array('form' => $form->getForm()->createView()));
 
-        }*/
+                }*/
 
         // On recupere les infos sur le bundle nécessaire à la génération du controller
         $kernel = $this->getContainer()->get('kernel');
@@ -218,11 +218,11 @@ class HelloCommand extends ContainerAwareCommand
         file_put_contents($target, $controller_code);
 
         return 0;
-        
+
 
     }
 
-    
-    }
+
+}
 
 
