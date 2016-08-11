@@ -42,7 +42,8 @@ class HelloCommand extends ContainerAwareCommand
            */
                 new InputOption('controller', '', InputOption::VALUE_REQUIRED, 'Le nom du controller a creer'),
                 new InputOption('bundle', '', InputOption::VALUE_REQUIRED, 'Le bundle dans lequel creer le controlleur'),
-                new InputOption('basecontroller', '', InputOption::VALUE_REQUIRED, 'S\'il faut ou non heriter du controlleur de base de Symfony2')
+                new InputOption('basecontroller', '', InputOption::VALUE_REQUIRED, 'S\'il faut ou non heriter du controlleur de base de Symfony2'),
+                new InputOption('function', '', InputOption::VALUE_REQUIRED, 'nom de la fonction')
             ))
             ->addArgument(
                 'name',
@@ -104,10 +105,13 @@ class HelloCommand extends ContainerAwareCommand
         $input->getOption('controller');
         $bundle = $dialog->ask($output, 'What is the name of the bundle?');
         $input->getOption('bundle');
-        $basecontroller = $dialog->ask($output, 'What is the name of the basecontroller?');
+        $basecontroller = $dialog->ask($output, 'is it extends basecontroller? yes/no  ');
         $input->getOption('basecontroller');
+        $function = $dialog->ask($output, 'What is the name of the funtion?');
+        $input->getOption('function');
         $input->setOption('controller', $controller);
         $input->setOption('bundle', $bundle);
+        $input->setOption('function', $function);
         $input->setOption('basecontroller', $basecontroller);
     }
 
@@ -133,13 +137,13 @@ class HelloCommand extends ContainerAwareCommand
         }
         // On recupere les options
         /*$entity = $input->getOption('entity').'()';
-        $table = $input->getOption('table');
+        $table = $input->getOption('table');*/
         $name = $input->getArgument('name');
-        $prenom = $input->getArgument('prenom');*/
+        $prenom = $input->getArgument('prenom');
         $controller = $input->getOption('controller');
         $bundleName = $input->getOption('bundle');
         $basecontroller=$input->getOption('basecontroller');
-        $name = $input->getArgument('name');
+        $function = $input->getOption('function');
         $prenom = $input->getArgument('prenom');
 
         if ($name && $prenom) {
@@ -199,6 +203,9 @@ class HelloCommand extends ContainerAwareCommand
         $namespace = $bundle->getNamespace();
         $path = $bundle->getPath();
         $target = $path.'/Controller/'.$controller.'Controller.php';
+        $className = $controller.'Controller';
+        
+
 
         // On génère le contenu du controlleur
         $twig = $this->getContainer()->get ('templating');
@@ -207,7 +214,8 @@ class HelloCommand extends ContainerAwareCommand
             array (
                 'controller' => $controller,
                 'basecontroller' => $basecontroller,
-                'namespace' => $namespace
+                'namespace' => $namespace,
+                'function' => $function
             )
         );
 
@@ -219,7 +227,29 @@ class HelloCommand extends ContainerAwareCommand
 
         return 0;
 
+    $this->generateClass($className,$target);
+    }
+    protected function generateClass($className, $target, $namespace)
+    {
+        $path = sprintf('%s/%s.php', $target, $className);
+        if(is_file($path))
+        {
+            return false;
+        }
+        return file_put_contents($path, $this->generateContentClass($className, $namespace));
+    }
 
+    protected function generateContentClass($className, $namespace)
+    {
+                return "<?php
+        namespace $namespace;
+        class $className
+        {
+            public function __construct()
+            {
+            }
+        }
+        ";
     }
 
 
