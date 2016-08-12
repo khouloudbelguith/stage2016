@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09e39b74-491d-4b67-b674-e907b91a9680" name="Default" comment="&#10;use QoopLmao\Doctrine\GeneratorBundle\Generator\InterfaceGenerator;&#10;use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;&#10;use QoopLmao\Doctrine\GeneratorBundle\Generator\EntityGenerator;&#10;/**&#10; * Base class for Doctrine console commands to extend from.&#10; *&#10; * @author Fabien Potencier &lt;fabien@symfony.com&gt;&#10; */&#10;abstract class DoctrineCommand extends ContainerAwareCommand&#10;{&#10;    /**&#10;     * get a doctrine entity generator&#10;     *&#10;     * @return EntityGenerator&#10;     */&#10;    protected function getEntityGenerator()&#10;    {&#10;        $entityGenerator = new EntityGenerator();&#10;        $entityGenerator-&gt;setGenerateAnnotations(false);&#10;        $entityGenerator-&gt;setGenerateStubMethods(true);&#10;        $entityGenerator-&gt;setRegenerateEntityIfExists(false);&#10;        $entityGenerator-&gt;setUpdateEntityIfExists(true);&#10;        $entityGenerator-&gt;setNumSpaces(4);&#10;        $entityGenerator-&gt;setAnnotationPrefix('ORM\\');&#10;        return $entityGenerator;&#10;    }&#10;    /**&#10;     * get a doctrine interface generator&#10;     *&#10;     * @return InterfaceGenerator&#10;     */&#10;    protected function getInterfaceGenerator()&#10;    {&#10;        $entityGenerator = new InterfaceGenerator();&#10;        $entityGenerator-&gt;setGenerateAnnotations(false);&#10;        $entityGenerator-&gt;setGenerateStubMethods(true);&#10;        $entityGenerator-&gt;setRegenerateEntityIfExists(false);&#10;        $entityGenerator-&gt;setUpdateEntityIfExists(true);&#10;        $entityGenerator-&gt;setNumSpaces(4);&#10;        $entityGenerator-&gt;setAnnotationPrefix('ORM\\');&#10;        return $entityGenerator;&#10;    }&#10;    /**&#10;     * Get a doctrine entity manager by symfony name.&#10;     *&#10;     * @param string $name&#10;     *&#10;     * @return \Doctrine\ORM\EntityManager&#10;     */&#10;    protected function getEntityManager($name)&#10;    {&#10;        return $this-&gt;getContainer()-&gt;get('doctrine')-&gt;getManager($name);&#10;    }&#10;    /**&#10;     * Get a doctrine dbal connection by symfony name.&#10;     *&#10;     * @param string $name&#10;     *&#10;     * @return \Doctrine\DBAL\Connection&#10;     */&#10;    protected function getDoctrineConnection($name)&#10;    {&#10;        return $this-&gt;getContainer()-&gt;get('doctrine')-&gt;getConnection($name);&#10;    }&#10;}&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Test/FrontBundle/Command/DoctrineCommand.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Test/FrontBundle/Command/GenerateEntitiesDoctrineCommand.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Test/FrontBundle/DependencyInjection/QoopLmaoDoctrineGeneratorExtension.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Test/FrontBundle/Generator/EntityGenerator.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Test/FrontBundle/Generator/InterfaceGenerator.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Test/FrontBundle/DependencyInjection/TestFrontExtension.php" afterPath="" />
+    <list default="true" id="09e39b74-491d-4b67-b674-e907b91a9680" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/FrontBundle/DependencyInjection/Configuration.php" afterPath="$PROJECT_DIR$/src/Test/FrontBundle/DependencyInjection/Configuration.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php" />
     </list>
     <ignored path="projet05.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +40,31 @@
       <file leaf-file-name="HelloCommand.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/Command/HelloCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3384">
+            <state relative-caret-position="555">
               <caret line="212" column="8" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="8" />
               <folding>
                 <marker date="1470923161036" expanded="true" signature="5606:5790" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationSonataUserBundle.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenerateEntitiesDoctrineCommand.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GenerateEntitiesDoctrineCommand.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/Command/GenerateEntitiesDoctrineCommand.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="403">
@@ -304,6 +318,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -386,67 +401,15 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Test" />
+              <option name="myItemId" value="Application" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FrontBundle" />
+              <option name="myItemId" value="Sonata" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Generator" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetstage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetstage" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Test" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrontBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DependencyInjection" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetstage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projetstage" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Test" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrontBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Command" />
+              <option name="myItemId" value="UserBundle" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -473,6 +436,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="UserBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -520,7 +487,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -681,7 +647,8 @@
       <workItem from="1470925855924" duration="1794000" />
       <workItem from="1470928197280" duration="598000" />
       <workItem from="1470930877347" duration="1805000" />
-      <workItem from="1470932715326" duration="922000" />
+      <workItem from="1470932715326" duration="1614000" />
+      <workItem from="1470989800066" duration="1504000" />
     </task>
     <task id="LOCAL-00001" summary="&#10;erreur corrigé">
       <created>1470827251356</created>
@@ -725,11 +692,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470923242067</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ajouter des classes pour créer une commande :générer entity">
+      <created>1470933716243</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1470933716243</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280172000" />
+    <option name="totallyTimeSpent" value="282368000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -742,15 +716,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31633466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15537849" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5059761" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6064815" sideWeight="0.49402392" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.53858024" sideWeight="0.49402392" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -782,7 +756,8 @@
     <MESSAGE value="modifier le nom de la commande" />
     <MESSAGE value="tester une autre commande /retour au précédante" />
     <MESSAGE value="ajouter une fonction dans le class crée" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajouter une fonction dans le class crée" />
+    <MESSAGE value="ajouter des classes pour créer une commande :générer entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajouter des classes pour créer une commande :générer entity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -791,20 +766,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/Resources/views/Dashboard/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/Resources/views/Sheet/create.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1040,16 +1001,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/DependencyInjection/TestFrontExtension.php" />
     <entry file="file://$PROJECT_DIR$/src/Khouloud/CommandBundle/Controller/ExampleController.php" />
-    <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/Command/HelloCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3384">
-          <caret line="212" column="8" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="8" />
-          <folding>
-            <marker date="1470923161036" expanded="true" signature="5606:5790" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/DependencyInjection/Configuration.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1102,6 +1053,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/FrontBundle/Command/HelloCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="212" column="8" selection-start-line="212" selection-start-column="8" selection-end-line="212" selection-end-column="8" />
+          <folding>
+            <marker date="1470923161036" expanded="true" signature="5606:5790" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
