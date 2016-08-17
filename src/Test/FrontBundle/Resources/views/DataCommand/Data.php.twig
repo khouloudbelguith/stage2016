@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ namespace }}\DataFixtures\ORM;
+{% if basecontroller %}
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use {{ bundleName }}\Entity\{{ entity }};
+{% endif %}
+
+class  Load{{ entity }} {% if basecontroller %} implements FixtureInterface {% endif %}
+{
+    public function load(ObjectManager $manager)
+    {
+    $instance{{ entity }} = new {{ entity }}();
+    {% set var = "instanceSheet" %}
+    {% for instance in var %}
+    {{ instance.content }}
+    {% endfor %}
+
+    }
+
+
+}

@@ -13,6 +13,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Doctrine\DBAL\DriverManager;
+use Symfony\Component\Console\Input\InputArgument;
 /**
  * Database tool allows you to easily drop and create your configured databases.
  *
@@ -22,23 +23,57 @@ use Doctrine\DBAL\DriverManager;
 class CreateDatabaseDoctrineCommand extends DoctrineCommand
 {
     /**
-     * {@inheritDoc}
+ * @var EntityManager
+ */
+    private $entityManager;
+    /**
+     * @var string
+     */
+    private $fixturesDir;
+    /**
+     * @var string
+     */
+    private $culture;
+    /**
+     * @var DatasetInterface[]
+     */
+    private $datasets = [];
+    /**
+     * @var Provider[]
+     */
+    private $providers = [];
+    /**
+     * @var ProcessorInterface[]
+     */
+    private $processors = [];
+
+
+    /**
+     * {@inheritdoc}
      */
     protected function configure()
     {
         $this
-            ->setName('khouloud:database:create')
-            ->setDescription('Creates the configured databases')
-            ->addOption('connection', null, InputOption::VALUE_OPTIONAL, 'The connection to use for this command')
-            ->setHelp(<<<EOT
-The <info>doctrine:database:create</info> command creates the default
-connections database:
-<info>php app/console doctrine:database:create</info>
-You can also optionally specify the name of a connection to create the
-database for:
-<info>php app/console doctrine:database:create --connection=default</info>
-EOT
-            );
+            ->setName('demo:fixtures:load')
+            ->setDescription('khouloud : Load a dataset of fixtures.')
+            ->addArgument(
+                'dataset',
+                InputArgument::REQUIRED,
+                sprintf('The dataset to load.')
+            )
+            ->addOption(
+                'append',
+                null,
+                InputOption::VALUE_NONE,
+                'Append the data fixtures instead of deleting all data from the database first.'
+            )
+            ->addOption(
+                'purge-with-truncate',
+                null,
+                InputOption::VALUE_NONE,
+                'Purge data by using a database-level TRUNCATE statement'
+            )
+        ;
     }
     /**
      * {@inheritDoc}
